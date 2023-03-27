@@ -2,6 +2,8 @@
 CREATE DATABASE TEST;
 SHOW DATABASES;
 -- @block
+USE TEST;
+-- @block
 CREATE TABLE Users(
     id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -12,7 +14,7 @@ CREATE TABLE Users(
 INSERT INTO Users(email, bio)
 VALUES("elsayed", "this is my bio");
 -- @block
-SELECT *
+SELECT DISTINCT *
 FROM Users
 WHERE country = "egy"
     AND id > 1
@@ -20,6 +22,13 @@ WHERE country = "egy"
     OR email = "elsayed"
 ORDER BY id ASC
 LIMIT 2;
+-- @block
+UPDATE Users
+SET bio = "COMMENT"
+WHERE id = 1;
+-- @block
+DELETE FROM Users
+WHERE id IS 1;
 -- @block
 CREATE INDEX email_index ON Users(email);
 -- @block

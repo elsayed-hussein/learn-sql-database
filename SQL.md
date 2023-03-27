@@ -10,6 +10,12 @@ to show databases .
 SHOW DATABASES;
 ```
 
+to use database.
+
+```sql
+USE databaseName;
+```
+
 to create a comment .
 
 ```sql
@@ -45,22 +51,37 @@ columnTwoValue
 to select data from table .
 
 ```sql
-SELECT whatYouNeed
+SELECT DISTINCT whatYouNeed
 FROM tableName
 WHERE columnName = "Value"
 AND columnName = "Value" LIKE "pattern"
-OR columnName = "Value"
+OR columnName IS "Value"
 ORDER BY columnName ASC
+GROUP BY columnName
 LIMIT 2;
 ```
 
-- -- will get all value from the table .
-  WHERE -- filter rows with logic .
-  AND -- add more filter with logic .
-  OR -- add more filter with logic .
-  LIKE -- add pattern to the logic .
-  ORDER BY -- will sort the results .
-  LIMIT -- will get only the number off rows that you want .
+HAVING -- equal to group by but runs last.
+GROUP BY -- to group the result by value.
+IS -- equal =
+% -- mene any thing
+DISTINCT -- to get only unique values .
+star -- will get all value from the table .
+WHERE -- filter rows with logic .
+AND -- add more filter with logic .
+OR -- add more filter with logic .
+BETWEEN -- filter between two condition .
+LIKE -- add pattern to the logic .
+ORDER BY -- will sort the results .
+LIMIT -- will get only the number off rows that you want .
+
+to update column value.
+
+```sql
+UPDATE tableName
+SET columnName = newValue
+WHERE condition;
+```
 
 to create index .
 
@@ -75,6 +96,10 @@ FOREIGN KEY (columnName) REFERENCES otherTableName(columnName);
 ```
 
 to join select from two tables .
+
+```sql
+JOIN tableName ON tableName.columnName = otherTableName.columnName;
+```
 
 ```sql
  INNER JOIN tableName ON tableName.columnName = otherTableName.columnName;
@@ -96,6 +121,13 @@ to rename or alias columnName
 
 ```sql
 columnName AS alias;
+```
+
+to delete row .
+
+```sql
+DELETE FROM tableName
+WHERE condition;
 ```
 
 to delete table .
